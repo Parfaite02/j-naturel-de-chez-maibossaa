@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Jus Naturel</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">🍹 Jus Naturel</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="commande.html">Commander</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#ffeb3b;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2 class="section-title">Contactez-Nous</h2>
+    <p class="section-subtitle">Nous sommes disponibles pour vous</p>
+
+    <div class="contact-grid">
+
+        <!-- Infos contact -->
+        <div>
+            <h3 style="color:#1b5e20;margin-bottom:25px;font-size:1.4rem;">
+                Nos coordonnées
+            </h3>
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <p>
+                    <strong>Adresse</strong>
+                    Ngaoundéré, Cameroun<br>
+                    Quartier Baladji
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📞</div>
+                <p>
+                    <strong>Téléphone / WhatsApp</strong>
+                    +237 657 34 99 10
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📧</div>
+                <p>
+                    <strong>Email</strong>
+                    maibossaadaneparfaite@gmail.com
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">🕐</div>
+                <p>
+                    <strong>Horaires de livraison</strong>
+                    Lundi – Samedi : 7h00 – 19h00<br>
+                    Dimanche : 8h00 – 14h00
+                </p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">🚚</div>
+                <p>
+                    <strong>Zone de livraison</strong>
+                    Tout Ngaoundéré et environs<br>
+                    <span style="color:#1b5e20;font-weight:600;">Livraison gratuite !</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Formulaire contact -->
+        <div class="form-container" style="box-shadow:none;padding:0;">
+            <h3 style="color:#1b5e20;margin-bottom:25px;font-size:1.4rem;">
+                Envoyez un message
+            </h3>
+            <div id="contactMsg"></div>
+            <div class="form-group">
+                <label>Nom complet</label>
+                <input type="text" id="contactNom" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label>Téléphone</label>
+                <input type="tel" id="contactTel" placeholder="6XX XXX XXX">
+            </div>
+            <div class="form-group">
+                <label>Sujet</label>
+                <input type="text" id="contactSujet"
+                       placeholder="Ex: Question sur la livraison">
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="contactMessage" rows="5"
+                    placeholder="Votre message..."></textarea>
+            </div>
+            <button class="btn"
+                    style="width:100%;background:#1b5e20;color:#fff;"
+                    onclick="envoyerContact()">
+                📨 Envoyer le message
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Jus Naturel</span> — Maibossaa Dane Parfaite | Ngaoundéré, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="parfaite">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;background:#1b5e20;color:#fff;"
+                onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script>
+function envoyerContact() {
+    const nom     = document.getElementById('contactNom').value.trim();
+    const tel     = document.getElementById('contactTel').value.trim();
+    const sujet   = document.getElementById('contactSujet').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    const msgDiv  = document.getElementById('contactMsg');
+
+    if (!nom || !message) {
+        msgDiv.innerHTML = '<div class="alert alert-error">❌ Veuillez remplir au moins le nom et le message.</div>';
+        return;
+    }
+
+    msgDiv.innerHTML = '<div class="alert alert-success">✅ Message envoyé ! Nous vous répondrons très bientôt.</div>';
+
+    document.getElementById('contactNom').value     = '';
+    document.getElementById('contactTel').value     = '';
+    document.getElementById('contactSujet').value   = '';
+    document.getElementById('contactMessage').value = '';
+}
+</script>
+
+</body>
+</html>ssssss

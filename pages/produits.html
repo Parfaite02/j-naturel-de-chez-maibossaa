@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits — Jus Naturel</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">🍹 Jus Naturel</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="commande.html">Commander</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#ffeb3b;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section style="background:#f9f9f9;">
+    <h2 class="section-title">Tous Nos Jus</h2>
+    <p class="section-subtitle">Frais, naturels et préparés à la commande</p>
+    <div class="produits-grid">
+        <div class="produit-card">
+            <div class="icon">🥭</div>
+            <h3>Jus de Mangue</h3>
+            <p>Mangue fraîche mixée avec une pointe de citron. Riche en vitamines A et C.</p>
+            <div class="prix">500 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+        <div class="produit-card">
+            <div class="icon">🍍</div>
+            <h3>Jus d'Ananas</h3>
+            <p>Ananas bien mûr mixé nature. Riche en vitamines et très désaltérant.</p>
+            <div class="prix">500 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+        <div class="produit-card">
+            <div class="icon">🍊</div>
+            <h3>Jus d'Orange</h3>
+            <p>Oranges pressées à la main. Naturel, sans sucre ajouté et plein d'énergie.</p>
+            <div class="prix">500 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+        <div class="produit-card">
+            <div class="icon">🍉</div>
+            <h3>Jus de Pastèque</h3>
+            <p>Pastèque fraîche mixée. Ultra rafraîchissante par temps chaud.</p>
+            <div class="prix">500 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+        <div class="produit-card">
+            <div class="icon">🍈</div>
+            <h3>Jus de Goyave</h3>
+            <p>Goyave mixée avec citron. Excellent pour la digestion et la santé.</p>
+            <div class="prix">500 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+        <div class="produit-card">
+            <div class="icon">🍓</div>
+            <h3>Jus Mixte</h3>
+            <p>Mélange de fruits de saison. Une explosion de saveurs et de vitamines.</p>
+            <div class="prix">700 FCFA</div>
+            <a href="commande.html" class="btn" style="font-size:0.9rem;padding:10px 25px;">Commander</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Jus Naturel</span> — Maibossaa Dane Parfaite | Ngaoundéré, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="parfaite">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;background:#1b5e20;color:#fff;" onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

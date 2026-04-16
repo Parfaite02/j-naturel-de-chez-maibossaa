@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander — Jus Naturel</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">🍹 Jus Naturel</div>
+    <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="commande.html">Commander</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" onclick="ouvrirAdmin()" style="color:#ffeb3b;">🔐 Admin</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2 class="section-title">Passer une Commande</h2>
+    <p class="section-subtitle">Remplissez le formulaire et recevez votre jus à domicile</p>
+
+    <div class="form-container">
+        <div id="cmdMsg"></div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+            <div class="form-group">
+                <label>Nom complet *</label>
+                <input type="text" id="cmdNom" placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label>Téléphone *</label>
+                <input type="tel" id="cmdTel" placeholder="6XX XXX XXX">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Adresse de livraison *</label>
+            <input type="text" id="cmdAdresse"
+                   placeholder="Quartier, rue, point de repère...">
+        </div>
+
+        <div class="form-group">
+            <label>Choisir un jus *</label>
+            <select id="cmdProduit">
+                <option value="">-- choisir un jus --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Quantité *</label>
+            <input type="number" id="cmdQuantite"
+                   min="1" max="20" value="1"
+                   placeholder="Nombre de verres/bouteilles">
+        </div>
+
+        <div class="form-group">
+            <label>Message (optionnel)</label>
+            <textarea id="cmdMessage" rows="3"
+                placeholder="Instructions spéciales, sans sucre, avec glace...">
+            </textarea>
+        </div>
+
+        <!-- Récapitulatif prix -->
+        <div style="background:#e8f5e9;padding:15px;border-radius:10px;margin-bottom:20px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="color:#1b5e20;font-weight:600;">💰 Total estimé :</span>
+                <span id="totalEstime" style="color:#1b5e20;font-size:1.3rem;font-weight:700;">500 FCFA</span>
+            </div>
+            <small style="color:#888;">Livraison gratuite à Ngaoundéré</small>
+        </div>
+
+        <button class="btn" style="width:100%;font-size:1rem;background:#1b5e20;color:#fff;"
+                onclick="soumettreCommande()">
+            🛒 Confirmer la commande
+        </button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Jus Naturel</span> — Maibossaa Dane Parfaite | Ngaoundéré, Cameroun</p>
+</footer>
+
+<!-- POPUP ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+        <div class="logo">🔐 Espace Admin</div>
+        <div id="adminMsg"></div>
+        <div class="form-group" style="text-align:left;">
+            <label>Nom d'utilisateur</label>
+            <input type="text" id="adminUser" placeholder="parfaite">
+        </div>
+        <div class="form-group" style="text-align:left;">
+            <label>Mot de passe</label>
+            <input type="password" id="adminPass" placeholder="••••••••">
+        </div>
+        <button class="btn" style="width:100%;background:#1b5e20;color:#fff;"
+                onclick="connecterAdmin()">Se connecter</button>
+        <br><br>
+        <a href="#" onclick="fermerAdmin()" style="color:#888;font-size:0.9rem;">✕ Fermer</a>
+    </div>
+</div>
+
+
+<script src="../js/script.js"></script>
+<script>
+// Calcul automatique du total
+window.addEventListener('load', function() {
+
+    // Remplir les produits
+    remplirProduits();
+
+    const selectProduit = document.getElementById('cmdProduit');
+    const inputQuantite = document.getElementById('cmdQuantite');
+    const totalEstime   = document.getElementById('totalEstime');
+
+    function calculerTotal() {
+        const produit  = produits.find(p => p.nom === selectProduit.value);
+        const quantite = parseInt(inputQuantite.value) || 1;
+        const total    = produit ? produit.prix * quantite : 0;
+        totalEstime.textContent = total > 0 ? total + ' FCFA' : '-- FCFA';
+    }
+
+    selectProduit.addEventListener('change', calculerTotal);
+    inputQuantite.addEventListener('input',  calculerTotal);
+});
+</script>
+
+</body>
+</html>
+</script>
+
+</body>
+</html>
