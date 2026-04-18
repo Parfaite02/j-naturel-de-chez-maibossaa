@@ -71,12 +71,29 @@ function soumettreCommande(){
     const adresse = document.getElementById('cmdAdresse').value.trim();
     const produit = document.getElementById('cmdProduit').value;
     const quantite = document.getElementById('cmdQuantite').value;
+    const total = document.getElementById('totalEstime').textContent;
 
     if (!nom|| !tel || !adresse || !produit) {
         alert('veuillez remplir tous les champs !');
         return;
         
     }
-    alert('Commande confirmée ! Nous vous contacterons bientot. Merci' + nom + '!');
+
+const msg = document.createElement('div');
+msg.style.cssText = 'position:fixed;top:0;right:0;bottom:0;background:rgba(0,0,0,0,8);display:flex;align-items:center;justify-conter;z-index:9999;';
+msg.innerHTML = `
+   <div style="background:white;padding:30px;border-radius:15px;text-align:centre;max-width:300px;">
+     <div style="font-size:3rem;">
+     <h2 style="color:#1b5e20;">Commande confirmée !</h2>
+     <p>Merci <strong>${nom}</strong> !</p>
+     <p>Total : <strong style="color:#1b5e20;">${total}</strong></p>
+     <p style="color:#888;">Nous vous contacterons au ${tel} bientot.</p>
+     <button onclick="this.parentElement.parentElement.remove()"
+     style="background:#1b5e20;color:white;border:padding:10px 25px;border-raduis:8px;font-size:1rem;margin-top:10px;">
+     OK
+     </button>
+    </div>
+`;
+document.body.appendChild(msg);
 
 }
