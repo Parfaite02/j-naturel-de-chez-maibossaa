@@ -53,4 +53,30 @@ function afficherPanneauAdmin() {
     document.body.appendChild(panneau);
 }
 
-//
+// produits disponibles
+const produits = [
+    { nom: 'mangue', prix: 500 },
+    { nom: 'ananas', prix: 500 },
+    { nom: 'pasteque', prix: 500 },
+    { nom: 'goyave', prix: 500 },
+    { nom: 'orange', prix: 400 },
+    { nom: 'mixtee', prix: 700 }, 
+
+];
+
+// Soumettre commande
+function soumettreCommande(){
+    const nom = document.getElementById('cmdNom').value.trim();
+    const tel = document.getElementById('cmdTel').value.trim();
+    const adresse = document.getElementById('cmdAdresse').value.trim();
+    const produit = document.getElementById('cmdProduit').value;
+    const quantite = document.getElementById('cmdQuantite').value;
+
+    if (!nom|| !tel || !adresse || !produit) {
+        alert('veuillez remplir tous les champs !');
+        return;
+        
+    }
+    alert('Commande confirmée ! Nous vous contacterons bientot. Merci' + nom + '!');
+
+}
